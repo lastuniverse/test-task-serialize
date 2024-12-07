@@ -1,0 +1,20 @@
+{
+  "name": "lab_syst_tech",
+  "version": "1.0.0",
+  "description": "Terms of reference from the Laboratory of System Technologies",
+  "main": "./src/index.js",
+  "type": "module",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "node ./tests/test.js"
+  },
+  "keywords": [
+    "serialize",
+    "deserialize",
+    "compress"
+  ],
+  "author": "Roman Surmanidze",
+  "license": "MIT"
+}
