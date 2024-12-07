@@ -1,3 +1,14 @@
+/** @typedef { import('./testingUtilitesTypes').TestCaseOptions } TestCaseOptions */
+/** @typedef { import('./testingUtilitesTypes').TestCaseRange } TestCaseRange */
+/** @typedef { import('../../src/serializerTypes').IntegerSetSerializer } IntegerSetSerializer */
+
+
+
+/**
+ * запустить тест кейс
+ * @param {IntegerSetSerializer} serializer 
+ * @param {TestCaseOptions} testCase - объект с параметрами тест кейса:
+ */
 export function startTestCase(serializer, testCase) {
 	const iterations = testCase?.iterations ?? 10;
 	const compress = [];
@@ -28,7 +39,12 @@ export function startTestCase(serializer, testCase) {
 	console.log("\tcompare result for all:", isAllEqual ? collors.FgGreen + "equal" : collors.FgRed + "not equal", collors.FgWhite);
 }
 
-
+/**
+ * сгенерировать множество
+ * @param {TestCaseRange|number} amount 
+ * @param {TestCaseRange|number} range 
+ * @returns {Arrai<number}
+ */
 function getRandomSet(amount = 100, range = { min: 1, max: 300 }) {
 	amount = getNumberFromRange(amount);
 
@@ -45,18 +61,29 @@ function getRandomSet(amount = 100, range = { min: 1, max: 300 }) {
 	return list;
 }
 
-function compareNumbers(a, b) {
-	return a - b;
-}
-
-function getNumberFromRange(dadaOfRange) {
-	if (Number.isInteger(dadaOfRange)) return dadaOfRange;
-	const min = dadaOfRange?.min ?? 1;
-	const max = dadaOfRange?.max ?? 100;
+/**
+ * возвращает dataOfRange если dataOfRange - число или случайно число заданное диапазоном если dataOfRange - TestCaseRange
+ * @param {TestCaseRange|number} dataOfRange 
+ * @returns {number}
+ */
+function getNumberFromRange(dataOfRange) {
+	if (Number.isInteger(dataOfRange)) return dataOfRange;
+	const min = dataOfRange?.min ?? 1;
+	const max = dataOfRange?.max ?? 100;
 	const delta = Math.abs(max - min);
 	const offset = Math.min(min, max);
 
 	return Math.floor(offset + Math.random() * delta);
+}
+
+/**
+ * служебный метод для сортировки массивов цифр
+ * @param {number} a 
+ * @param {number} b 
+ * @returns {number}
+ */
+function compareNumbers(a, b) {
+	return a - b;
 }
 
 const collors = {

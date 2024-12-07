@@ -11,7 +11,6 @@ startTestCase(serializer, {
 	range: { min: 1, max: 9 },
 });
 
-
 // случайные - 50 чисел
 startTestCase(serializer, {
 	name: "random 50",
@@ -19,7 +18,6 @@ startTestCase(serializer, {
 	amount: 50,
 	range: { min: 1, max: 300 },
 });
-
 
 // случайные - 100 чисел
 startTestCase(serializer, {
@@ -29,7 +27,6 @@ startTestCase(serializer, {
 	range: { min: 1, max: 300 },
 });
 
-
 // случайные - 500 чисел
 startTestCase(serializer, {
 	name: "random 500",
@@ -37,7 +34,6 @@ startTestCase(serializer, {
 	amount: 500,
 	range: { min: 1, max: 300 },
 });
-
 
 // случайные - 1000 чисел
 startTestCase(serializer, {
