@@ -35,7 +35,7 @@ startTestCase(serializer, {
 	name: "random 500",
 	iterations: 10,
 	amount: 500,
-	ranges: { min: 1, max: 300 },
+	range: { min: 1, max: 300 },
 });
 
 
@@ -44,7 +44,7 @@ startTestCase(serializer, {
 	name: "random 1000",
 	iterations: 10,
 	amount: 1000,
-	ranges: { min: 1, max: 300, },
+	range: { min: 1, max: 300, },
 });
 
 // граничные - все числа из 1 знака
