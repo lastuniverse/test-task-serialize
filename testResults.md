@@ -1,5 +1,5 @@
 
-## Test results
+## Test results (without LZ)
 
 --------------------------------------------------------
 ### test case:  simple short 

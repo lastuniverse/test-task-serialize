@@ -2,8 +2,6 @@
 /** @typedef { import('./testingUtilitesTypes').TestCaseRange } TestCaseRange */
 /** @typedef { import('../../src/serializerTypes').IntegerSetSerializer } IntegerSetSerializer */
 
-
-
 /**
  * запустить тест кейс
  * @param {IntegerSetSerializer} serializer 
@@ -22,11 +20,13 @@ export function startTestCase(serializer, testCase) {
 		const text = list.toString();
 		const serializeText = serializer.serialize(list);
 		const restoreList = serializer.deserialize(serializeText);
-		const isEqual = text === restoreList.toString();
+		const restoreText = restoreList.toString();
+		const isEqual = text === restoreText;
 		if (!isEqual) isAllEqual = false;
 
 		console.log("\n\titeration:", collors.FgBlue, `${testCase.name} - ${i}`, collors.FgWhite);
 		console.log("\t\tsource text:", collors.FgGray, text, collors.FgWhite);
+		// console.log("\t\trestore text:", collors.FgGray, restoreText, collors.FgWhite);
 		console.log("\t\tcompressed text:", collors.FgGray, serializeText, collors.FgWhite);
 		console.log("\t\tcompare result:", isEqual ? collors.FgGreen + "equal" : collors.FgRed + "not equal", collors.FgWhite);
 		console.log("\t\tcompression:", collors.FgYellow, serializeText.length / text.length, collors.FgWhite);
@@ -94,6 +94,7 @@ const collors = {
 	Blink: "\x1b[5m",
 	Reverse: "\x1b[7m",
 	Hidden: "\x1b[8m",
+	
 	FgBlack: "\x1b[30m",
 	FgRed: "\x1b[31m",
 	FgGreen: "\x1b[32m",
@@ -103,6 +104,7 @@ const collors = {
 	FgCyan: "\x1b[36m",
 	FgWhite: "\x1b[37m",
 	FgGray: "\x1b[90m",
+	
 	BgBlack: "\x1b[40m",
 	BgRed: "\x1b[41m",
 	BgGreen: "\x1b[42m",
